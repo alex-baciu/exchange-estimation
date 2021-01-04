@@ -204,7 +204,7 @@ public class ExchangesServiceImpl implements ExchangesService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (exitCode != 200) {
+        if (exitCode != 0) {
             throw new Exception("Python script failed!");
         }
     }

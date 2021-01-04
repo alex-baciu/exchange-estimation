@@ -175,8 +175,8 @@ def main():
         y_pred.append(polynomial(x_pred[-1], parameters, g))
 
     # plotting the points
-    plt.plot(x, y, marker='o', linewidth=0, markersize=12)
-    plt.plot(x_pred,y_pred,marker='o',linewidth=0, markersize=12, color='green')
+    plt.plot(x, y, marker='o', linewidth=0, markersize=8)
+    plt.plot(x_pred,y_pred,marker='o',linewidth=0, markersize=8, color='green')
 
     # naming the x axis
     plt.xlabel(time_type)
@@ -205,12 +205,10 @@ def main():
         x_vect.append(x_first)
         fx_vect.append(polynomial(x_first, parameters, g))
 
-    plt.xticks(x+x_pred, names,rotation='vertical')
-
-    plt.plot(x_vect, fx_vect)
+    plt.xticks(x+x_pred, names, rotation='vertical')
 
     # function to show the plot
-    plt.savefig('grafic.png')
+    plt.savefig('E:/an4/EP/EP-Project/exchange-estimation/client-app/src/assets/grafic.png', bbox_inches='tight')
 
     plt.show()
 

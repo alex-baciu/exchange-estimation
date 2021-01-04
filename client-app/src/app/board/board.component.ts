@@ -19,16 +19,9 @@ export class BoardComponent implements OnInit {
   getGraphic() {
     if (
       this.selectedEstimationTime === 'Day' &&
-      !(this.estimatedTime >= 1 && this.estimatedTime <= 6)
+      !(this.estimatedTime >= 1 && this.estimatedTime <= 10)
     ) {
-      alert('Number of Days should be between 1 and 6');
-      return;
-    }
-    if (
-      this.selectedEstimationTime === 'Week' &&
-      !(this.estimatedTime >= 1 && this.estimatedTime <= 3)
-    ) {
-      alert('Number of Weeks should be between 1 and 3');
+      alert('Number of Days should be between 1 and 10');
       return;
     }
     if (

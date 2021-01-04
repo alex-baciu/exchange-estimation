@@ -2,7 +2,6 @@
   <label>Estimation time:</label><br />
   <select  [(ngModel)]="selectedEstimationTime" class="form-control">
     <option selected>Day</option>
-    <option>Week</option>
     <option>Month</option>
     <option>Year</option>
   </select><br />
@@ -45,10 +44,10 @@
     <option>ZAR</option>
   </select><br />
 
-  <label class="mt-2">Estimation Method</label><br />
+  <label class="mt-2">Estimation Method:</label><br />
   <select [(ngModel)]="selectedEstimationMethod" class="form-control">
-    <option>Linear regression:</option>
-    <option>Second degree polynomial:</option>
+    <option>Linear regression</option>
+    <option>Second degree polynomial</option>
   </select><br />
 
   <button class="btn mt-4" (click)="getGraphic()">Send</button><br /><br />
