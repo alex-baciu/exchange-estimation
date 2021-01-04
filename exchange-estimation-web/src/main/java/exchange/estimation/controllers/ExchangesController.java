@@ -3,13 +3,11 @@ package exchange.estimation.controllers;
 import exchange.estimation.services.interfaces.ExchangesService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/api/exchanges")
+@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*")
 public class ExchangesController {
     private final ExchangesService exchangesService;
 
@@ -17,10 +15,10 @@ public class ExchangesController {
         this.exchangesService = exchangesService;
     }
 
-    @GetMapping("/type/{type}/number/{number}")
-    ResponseEntity<?> GetUnseenMessage(@PathVariable String type, @PathVariable Long number) {
+    @GetMapping("/type/{type}/number/{number}/currency/{currency}/methode/{methode}")
+    ResponseEntity<?> GetUnseenMessage(@PathVariable String type, @PathVariable Long number, @PathVariable String currency, @PathVariable String methode) {
         try {
-            this.exchangesService.GetGraph("luna",2l);
+            this.exchangesService.GetGraph("luna",2l, currency, methode);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

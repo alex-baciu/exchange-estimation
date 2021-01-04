@@ -1,0 +1,14 @@
+.header-container {
+  height: 80px;
+  background-color: #282c31;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.header-title {
+  color: white;
+  font-weight: bold;
+  font-size: 35px;
+  text-align: center;
+  padding-top: 15px;
+}

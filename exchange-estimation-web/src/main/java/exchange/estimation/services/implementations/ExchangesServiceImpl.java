@@ -42,7 +42,7 @@ public class ExchangesServiceImpl implements ExchangesService {
     }
 
     @Override
-    public Byte[] GetGraph(String Type, Long number) {
+    public Byte[] GetGraph(String Type, Long number, String currency, String methode) {
         try {
             Modifies modify = modifiesService.GetLastModify();
 

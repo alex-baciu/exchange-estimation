@@ -1,0 +1,55 @@
+<div class="form-group pt-3">
+  <label>Estimation time</label><br />
+  <select  [(ngModel)]="selectedEstimationTime" class="form-control">
+    <option selected>Day</option>
+    <option>Week</option>
+    <option>Month</option>
+    <option>Year</option>
+  </select><br />
+
+  <input [(ngModel)]="estimatedTime" class="mt-3" type="number" placeholder="Number of days/weeks/months/years"><br />
+
+  <label class="mt-2">Currency</label><br />
+  <select [(ngModel)]="selectedCurency" class="form-control">
+    <option>AED</option>
+    <option>AUD</option>
+    <option>BGN</option>
+    <option>BRL</option>
+    <option>CAD</option>
+    <option>CHF</option>
+    <option>CNY</option>
+    <option>CZK</option>
+    <option>DKK</option>
+    <option>EGP</option>
+    <option>EUR</option>
+    <option>GBP</option>
+    <option>HRK</option>
+    <option>HUF</option>
+    <option>INR</option>
+    <option>JPY</option>
+    <option>KRW</option>
+    <option>MDL</option>
+    <option>MXN</option>
+    <option>NOK</option>
+    <option>NZD</option>
+    <option>PLN</option>
+    <option>RSD</option>
+    <option>RUB</option>
+    <option>SEK</option>
+    <option>THB</option>
+    <option>TRY</option>
+    <option>UAH</option>
+    <option>USD</option>
+    <option>XAU</option>
+    <option>XDR</option>
+    <option>ZAR</option>
+  </select><br />
+
+  <label class="mt-2">Estimation Method</label><br />
+  <select [(ngModel)]="selectedEstimationMethod" class="form-control">
+    <option>Linear regression</option>
+    <option>Second degree polynomial</option>
+  </select><br />
+
+  <button class="btn mt-4" (click)="getGraphic()">Send</button>
+</div>
