@@ -106,7 +106,7 @@ def main():
     plt.plot(x_vect, fx_vect)
 
     # function to show the plot
-    plt.savefig('grafic.png')
+    plt.savefig('E:/an4/EP/EP-Project/exchange-estimation/client-app/src/assets/grafic.png')
 
 
 

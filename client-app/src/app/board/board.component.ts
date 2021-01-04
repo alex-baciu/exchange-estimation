@@ -53,9 +53,7 @@ export class BoardComponent implements OnInit {
         `/currency/${this.selectedCurency}` +
         `/methode/${this.selectedEstimationMethod}`
     ).subscribe((obj)=> {
-      console.log(obj)
     }, (err) => {
-      console.log(err)
     })
   }
 }

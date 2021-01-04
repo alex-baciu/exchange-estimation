@@ -41,3 +41,10 @@ input {
 .form-group {
   margin-left: 30%;
 }
+
+img {
+  display: inline-block;
+  margin-top: 2px;
+  height: 350px;
+  width: 50%;
+}
