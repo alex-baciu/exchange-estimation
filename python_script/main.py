@@ -1,9 +1,8 @@
 # importing the required module
 import matplotlib.pyplot as plt
-import numpy as np
 from scipy.linalg import solve
 from pymongo import MongoClient
-
+import sys;
 
 
 def polynomial(value, parameters, number_of_parameters):
@@ -14,7 +13,7 @@ def polynomial(value, parameters, number_of_parameters):
 
 
 def main():
-    client = MongoClient('mongodb://DbOperator:DbOperator@localhost:27017/?authSource=admin')
+    client = MongoClient('mongodb://operator:operator@localhost:27017/?authSource=admin')
 
     print(client.list_database_names())
 
@@ -108,9 +107,12 @@ def main():
 
     # function to show the plot
     plt.savefig('grafic.png')
-    plt.show()
 
 
 
 if __name__ == "__main__":
     main()
+    f = open("test.txt", "a")
+    f.write(str(sys.argv))
+    f.close()
+    sys.exit(200)

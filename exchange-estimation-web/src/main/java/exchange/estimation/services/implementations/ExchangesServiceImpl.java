@@ -18,6 +18,9 @@ import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -42,7 +45,7 @@ public class ExchangesServiceImpl implements ExchangesService {
     }
 
     @Override
-    public Byte[] GetGraph(String Type, Long number, String currency, String methode) {
+    public void GetGraph(String type, Long number, String currency, String methode) throws Exception {
         try {
             Modifies modify = modifiesService.GetLastModify();
 
@@ -70,10 +73,9 @@ public class ExchangesServiceImpl implements ExchangesService {
                 endYear++;
             } else if (currentDate.after(startDateOfNewYear) && modify.getDate().before(endOfSavedYear)) {
                 endYear += 2;
-            }
-            else if (currentDate.after(startDateOfNewYear) && currentDate.after(endOfSavedYear)) {
+            } else if (currentDate.after(startDateOfNewYear) && currentDate.after(endOfSavedYear)) {
                 endYear += 2;
-                startYear +=1;
+                startYear += 1;
             }
             Date lastDate = null;
             Document doc;
@@ -107,7 +109,7 @@ public class ExchangesServiceImpl implements ExchangesService {
                     NodeList rateList = cube.getChildNodes();
                     PostLatestExchanges(rateList, date);
                 }
-                
+
                 Modifies new_modify = new Modifies(lastDate);
                 modifiesService.PostModify(new_modify);
             }
@@ -145,7 +147,7 @@ public class ExchangesServiceImpl implements ExchangesService {
             modifiesService.PostModify(modify);
         }
 
-        return null;
+        ReadFromFile(type, number, currency, methode);
     }
 
     private static Document convertStringToXMLDocument(String xmlString) {
@@ -185,5 +187,25 @@ public class ExchangesServiceImpl implements ExchangesService {
             return null;
         }
         return responseEntity;
+    }
+
+    private void ReadFromFile(String type, Long number, String currency, String methode) throws Exception {
+        String path = "E:\\an4\\EP\\EP-Project\\exchange-estimation\\exchange-estimation-web\\src\\main\\resources\\script\\main.exe";
+        Process p;
+
+        ProcessBuilder pb = new ProcessBuilder(path, type + "~" + number + "~" + currency + "~" + methode);
+        int exitCode = 0;
+        try {
+            p = pb.start();
+            exitCode = p.waitFor();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (exitCode != 200) {
+            throw new Exception("Python script failed!");
+        }
     }
 }

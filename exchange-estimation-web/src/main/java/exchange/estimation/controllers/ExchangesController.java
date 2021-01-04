@@ -18,8 +18,8 @@ public class ExchangesController {
     @GetMapping("/type/{type}/number/{number}/currency/{currency}/methode/{methode}")
     ResponseEntity<?> GetUnseenMessage(@PathVariable String type, @PathVariable Long number, @PathVariable String currency, @PathVariable String methode) {
         try {
-            this.exchangesService.GetGraph("luna",2l, currency, methode);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            this.exchangesService.GetGraph(type,number, currency, methode);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
