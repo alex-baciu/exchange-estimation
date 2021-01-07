@@ -16,7 +16,7 @@ public class ExchangesController {
     }
 
     @GetMapping("/type/{type}/number/{number}/currency/{currency}/methode/{methode}")
-    ResponseEntity<?> GetUnseenMessage(@PathVariable String type, @PathVariable Long number, @PathVariable String currency, @PathVariable String methode) {
+    ResponseEntity<?> GetGraph(@PathVariable String type, @PathVariable Long number, @PathVariable String currency, @PathVariable String methode) {
         try {
             this.exchangesService.GetGraph(type,number, currency, methode);
             return new ResponseEntity<>(HttpStatus.OK);

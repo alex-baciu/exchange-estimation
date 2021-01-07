@@ -179,7 +179,7 @@ public class ExchangesServiceImpl implements ExchangesService {
         }
     }
 
-    private ResponseEntity<?> GetExchanges(int year) {
+    public ResponseEntity<?> GetExchanges(int year) {
         ResponseEntity<?> responseEntity =
                 this.restTemplate.getForEntity(EXCHANGE_ENDPOINT + year + ".xml", String.class, 1);
 
