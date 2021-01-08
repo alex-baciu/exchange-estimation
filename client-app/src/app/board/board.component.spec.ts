@@ -74,7 +74,7 @@ describe('BoardComponent', () => {
     });
 
     //verificare apel call http cu parametri corecti in caz de date corecte
-    it('should alert user if the value for selectedEstimationTime = Year is not correct', () => {
+    it('should call api get if parameters are correct', () => {
       spyOn(window, 'alert');
       component.selectedEstimationTime = 'Month';
       component.estimatedTime = 3;

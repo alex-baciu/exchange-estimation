@@ -183,7 +183,8 @@ public class ExchangesServiceImpl implements ExchangesService {
         ResponseEntity<?> responseEntity =
                 this.restTemplate.getForEntity(EXCHANGE_ENDPOINT + year + ".xml", String.class, 1);
 
-        if (responseEntity.getStatusCode() != HttpStatus.OK || !responseEntity.getHeaders().getContentType().equals(MediaType.TEXT_XML)) {
+        if (responseEntity.getStatusCode() != HttpStatus.OK
+                || !responseEntity.getHeaders().getContentType().toString().contains("xml")) {
             return null;
         }
         return responseEntity;

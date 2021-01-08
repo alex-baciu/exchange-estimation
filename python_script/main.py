@@ -207,10 +207,8 @@ def main():
 
     plt.xticks(x+x_pred, names, rotation='vertical')
 
-    # function to show the plot
+    plt.plot(x_vect, fx_vect)
     plt.savefig('E:/an4/EP/EP-Project/exchange-estimation/client-app/src/assets/grafic.png', bbox_inches='tight')
-
-    plt.show()
 
 
 if __name__ == "__main__":
